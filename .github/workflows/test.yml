@@ -16,7 +16,7 @@ jobs:
       - run: make CTEST_OUTPUT_ON_FAILURE=1  test
 #1
       - name: Coveralls
-        run: coveralls -t ${{ secrets.COVERALLS_REPO_TOKEN}} --root . -E ".*external.*" -E ".*tests.*" 
+        run: coveralls -t ${{ secrets.COVERALLS_REPO_TOKEN}} --root -E ".*external.*" -E ".*tests.*" 
   sonarcloud-check:
     needs: gtest-tests
     runs-on: ubuntu-latest
