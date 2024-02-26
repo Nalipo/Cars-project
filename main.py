@@ -1,9 +1,12 @@
 class Engine:
     def __init__(self, capacity):
-        self.capacity = capacity
+            self.capacity = capacity
 
     def start_engine(self):
-        print(f"Engine({self.capacity}) started")
+        if int(self.capacity) <= 0:
+            print('Несуществующая машина')
+        else:
+            print(f"Engine({self.capacity}) started")
 
     def accelerate(self):
         print(f"Accelerating({self.capacity}) the engine")

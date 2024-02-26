@@ -4,7 +4,7 @@ from io import StringIO
 from main import Engine, Car
 
 
-# Блочные тесты
+#Блочные тесты
 class TestEngine(unittest.TestCase):
     def test_start_engine(self):
         engine = Engine(2000)
@@ -25,6 +25,13 @@ class TestEngine(unittest.TestCase):
         expected_output = "Engine(2000) stopped\n"
         with patch('sys.stdout', new=StringIO()) as fake_out:
             engine.stop_engine()
+            self.assertEqual(fake_out.getvalue(), expected_output)
+
+    def test_start_engine_negative(self):
+        engine = Engine(-150)
+        expected_output = "Несуществующая машина\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            engine.start_engine()
             self.assertEqual(fake_out.getvalue(), expected_output)
 
 
